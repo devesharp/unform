@@ -1,6 +1,6 @@
 {
   "name": "@devesharp/unform-web",
-  "version": "2.1.6",
+  "version": "2.1.7-next.0",
   "description": "Unform Web support",
   "author": "Diego Fernandes <diego.schell.f@gmail.com>",
   "homepage": "https://github.com/unform/unform#readme",
@@ -27,7 +27,7 @@
     "url": "https://github.com/unform/unform/issues"
   },
   "dependencies": {
-    "@devesharp/unform-core": "2.1.6"
+    "@devesharp/unform-core": "2.1.7-next.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
