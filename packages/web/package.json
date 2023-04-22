@@ -1,6 +1,6 @@
 {
   "name": "@devesharp/unform-web",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "Unform Web support",
   "author": "Diego Fernandes <diego.schell.f@gmail.com>",
   "homepage": "https://github.com/unform/unform#readme",
@@ -33,5 +33,5 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "gitHead": "cbe4cc8ef5cb45ce9b441a2bcb889911c48f2dd7"
+  "gitHead": "82db061a6e22a3f16b5a6e7e6834c95df484135b"
 }
