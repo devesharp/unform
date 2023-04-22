@@ -14,11 +14,12 @@ import { FormContext } from './Context'
 import { UnformErrors, UnformField, FormHandles, FormProps } from './types'
 
 const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
-  { initialData = {}, children, onSubmit },
+  { initialData = {}, children, onSubmit, persistHiddenData = false },
   formRef
 ) => {
   const [errors, setErrors] = useState<UnformErrors>({})
   const fields = useRef<UnformField[]>([])
+  const currentData = useRef<any>(initialData)
 
   const getFieldByName = useCallback(
     fieldName =>
@@ -57,6 +58,7 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
   )
 
   const reset = useCallback((data = {}) => {
+    currentData.current = {}
     fields.current.forEach(({ name, ref, path, clearValue }) => {
       if (clearValue) {
         return clearValue(ref, data[name])
@@ -69,6 +71,7 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
   const setData = useCallback(
     (data: object) => {
       const fieldValue = {}
+      currentData.current = data
 
       fields.current.forEach(field => {
         fieldValue[field.name] = dot.pick(field.name, data)
@@ -92,7 +95,11 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
   }, [])
 
   const parseFormData = useCallback(() => {
-    const data = {}
+    let data = {}
+
+    if (persistHiddenData) {
+      data = currentData.current
+    }
 
     fields.current.forEach(field => {
       data[field.name] = getFieldValue(field)
@@ -139,13 +146,15 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
       const field = getFieldByName(fieldName)
 
       if (!field) {
-        return false
+        return dot.pick(fieldName, currentData.current) ?? false
       }
 
       return getFieldValue(field)
     },
     setFieldValue(fieldName, value) {
       const field = getFieldByName(fieldName)
+
+      dot.set(fieldName, value, currentData.current)
 
       if (!field) {
         return false
@@ -198,7 +207,7 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
   return (
     <FormContext.Provider
       value={{
-        initialData,
+        initialData: currentData,
         errors,
         scopePath: '',
         registerField,

@@ -1,4 +1,4 @@
-import { RefObject } from 'react'
+import { RefObject, useState } from 'react'
 
 import { act, fireEvent, waitFor } from '@testing-library/react'
 
@@ -441,4 +441,288 @@ describe('Form', () => {
       expect((getByLabelText('name') as HTMLInputElement).value).toBe('')
     }
   })
+
+  it('should return form elements data on submit', () => {
+    const submitMock = jest.fn()
+
+    function Component() {
+      const [show, setShow] = useState(false)
+
+      return (
+        <>
+          <Input name="name" />
+          <Scope path="address">
+            <Input name="street" />
+          </Scope>
+          <button
+            data-testid="button"
+            type="button"
+            onClick={() => setShow(!show)}
+          >
+            Button
+          </button>
+          {show && <Input name="another" />}
+        </>
+      )
+    }
+
+    const { getByTestId, getByLabelText } = render(<Component />, {
+      onSubmit: submitMock,
+      initialData: {
+        address: { street: 'John Doe Avenue' },
+        another: 'Other name',
+      },
+    })
+
+    fireEvent.submit(getByTestId('form'))
+
+    fireEvent.change(getByLabelText('name'), {
+      target: { value: 'Diego' },
+    })
+
+    fireEvent.click(getByTestId('button'))
+
+    fireEvent.submit(getByTestId('form'))
+
+    expect(submitMock).toHaveBeenCalledWith(
+      {
+        name: 'Diego',
+        another: 'Other name',
+        address: {
+          street: 'John Doe Avenue',
+        },
+      },
+      {
+        reset: expect.any(Function),
+      },
+      expect.any(Object)
+    )
+  })
+})
+
+it('should be persist data hidden data', () => {
+  const formRef: RefObject<FormHandles> = { current: null }
+  const submitMock = jest.fn()
+
+  function Component() {
+    const [show, setShow] = useState(false)
+
+    return (
+      <>
+        <Input name="name" />
+        <Scope path="address">
+          <Input name="street" />
+        </Scope>
+        <button
+          data-testid="button"
+          type="button"
+          onClick={() => setShow(!show)}
+        >
+          Button
+        </button>
+        {show && <Input name="another" />}
+      </>
+    )
+  }
+
+  const { getByLabelText, getByTestId } = render(<Component />, {
+    onSubmit: submitMock,
+    ref: formRef,
+  })
+
+  if (formRef.current) {
+    formRef.current.setData({
+      name: 'Diego',
+      another: 'Other name',
+      address: {
+        street: 'John Doe Avenue',
+      },
+    })
+  }
+
+  fireEvent.click(getByTestId('button'))
+
+  fireEvent.submit(getByTestId('form'))
+
+  expect(submitMock).toHaveBeenCalledWith(
+    {
+      name: 'Diego',
+      another: 'Other name',
+      address: {
+        street: 'John Doe Avenue',
+      },
+    },
+    {
+      reset: expect.any(Function),
+    },
+    expect.any(Object)
+  )
+})
+
+it('should be not persist data on get data if hidden', () => {
+  const formRef: RefObject<FormHandles> = { current: null }
+  const submitMock = jest.fn()
+
+  function Component() {
+    const [show, setShow] = useState(false)
+
+    return (
+      <>
+        <Input name="name" />
+        <Scope path="address">
+          <Input name="street" />
+        </Scope>
+        <button
+          data-testid="button"
+          type="button"
+          onClick={() => setShow(!show)}
+        >
+          Button
+        </button>
+        {show && <Input name="another" />}
+      </>
+    )
+  }
+
+  const { getByLabelText, getByTestId } = render(<Component />, {
+    onSubmit: submitMock,
+    ref: formRef,
+  })
+
+  if (formRef.current) {
+    formRef.current.setData({
+      name: 'Diego',
+      another: 'Other name',
+      address: {
+        street: 'John Doe Avenue',
+      },
+    })
+  }
+
+  fireEvent.submit(getByTestId('form'))
+
+  expect(submitMock).toHaveBeenCalledWith(
+    {
+      name: 'Diego',
+      address: {
+        street: 'John Doe Avenue',
+      },
+    },
+    {
+      reset: expect.any(Function),
+    },
+    expect.any(Object)
+  )
+})
+
+it('should be persist data hidden with option persistHiddenData', () => {
+  const formRef: RefObject<FormHandles> = { current: null }
+  const submitMock = jest.fn()
+
+  function Component() {
+    const [show, setShow] = useState(false)
+
+    return (
+      <>
+        <Input name="name" />
+        <Scope path="address">
+          <Input name="street" />
+        </Scope>
+        <button
+          data-testid="button"
+          type="button"
+          onClick={() => setShow(!show)}
+        >
+          Button
+        </button>
+        {show && <Input name="another" />}
+      </>
+    )
+  }
+
+  const { getByLabelText, getByTestId } = render(<Component />, {
+    onSubmit: submitMock,
+    ref: formRef,
+    persistHiddenData: true,
+  })
+
+  if (formRef.current) {
+    formRef.current.setData({
+      name: 'Diego',
+      another: 'Other name',
+      address: {
+        street: 'John Doe Avenue',
+      },
+    })
+  }
+
+  fireEvent.submit(getByTestId('form'))
+
+  expect(submitMock).toHaveBeenCalledWith(
+    {
+      name: 'Diego',
+      another: 'Other name',
+      address: {
+        street: 'John Doe Avenue',
+      },
+    },
+    {
+      reset: expect.any(Function),
+    },
+    expect.any(Object)
+  )
+})
+
+it('should be persist data hidden with option persistHiddenData', () => {
+  const formRef: RefObject<FormHandles> = { current: null }
+  const submitMock = jest.fn()
+
+  function Component() {
+    const [show, setShow] = useState(false)
+
+    return (
+      <>
+        <Input name="name" />
+        <button
+          data-testid="button"
+          type="button"
+          onClick={() => setShow(!show)}
+        >
+          Button
+        </button>
+        {show && <Input name="another" />}
+      </>
+    )
+  }
+
+  const { getByLabelText, getByTestId } = render(<Component />, {
+    onSubmit: submitMock,
+    ref: formRef,
+    persistHiddenData: true,
+  })
+
+  if (formRef.current) {
+    formRef.current.setData({
+      name: 'Diego',
+      another: 'Other name',
+      address: {
+        street: 'John Doe Avenue',
+      },
+    })
+
+    formRef.current.reset();
+    formRef.current.setFieldValue('name', 'Diego 2')
+  }
+
+  fireEvent.submit(getByTestId('form'))
+
+  expect(submitMock).toHaveBeenCalledWith(
+    {
+      name: 'Diego 2',
+    },
+    {
+      reset: expect.any(Function),
+    },
+    expect.any(Object)
+  )
 })

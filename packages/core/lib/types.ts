@@ -72,4 +72,5 @@ export interface FormProps extends Omit<HTMLFormProps, 'onSubmit'> {
   initialData?: Record<string, any>
   children: ReactNode
   onSubmit: SubmitHandler
+  persistHiddenData?: boolean
 }

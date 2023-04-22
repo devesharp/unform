@@ -14,6 +14,8 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   moduleNameMapper: {
-    '@devesharp/unform-(.*)': '<rootDir>/packages/$1/lib',
+    '@devesharp/unform-core': '<rootDir>/packages/core/lib',
+    '@devesharp/unform-web': '<rootDir>/packages/web/lib',
+    '@devesharp/unform-mobile': '<rootDir>/packages/mobile/lib',
   },
 }
