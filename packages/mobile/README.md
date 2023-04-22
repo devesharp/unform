@@ -8,7 +8,7 @@
 
 <div align="center">
 
-[![npm](https://img.shields.io/npm/v/@unform/mobile.svg?color=%238257E5&style=for-the-badge)](https://www.npmjs.com/package/@unform/mobile)<space><space>
+[![npm](https://img.shields.io/npm/v/@devesharp/unform-mobile.svg?color=%238257E5&style=for-the-badge)](https://www.npmjs.com/package/@devesharp/unform-mobile)<space><space>
 [![Coverage Status](https://img.shields.io/coveralls/github/unform/unform?color=8257E5&style=for-the-badge)](https://coveralls.io/github/unform/unform?branch=main)
 
 </div>

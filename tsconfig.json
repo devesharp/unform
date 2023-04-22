@@ -21,7 +21,7 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@unform/core": ["packages/core/lib"]
+      "@devesharp/unform-core": ["packages/core/lib"]
     }
   },
   "include": ["packages/**/*"],

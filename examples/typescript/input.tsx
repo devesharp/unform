@@ -1,7 +1,7 @@
 import { useRef, useEffect, InputHTMLAttributes } from 'react'
 
-import { useField, SubmitHandler, FormHandles } from '@unform/core'
-import { Form } from '@unform/web'
+import { useField, SubmitHandler, FormHandles } from '@devesharp/unform-core'
+import { Form } from '@devesharp/unform-web'
 
 /**
  * This input component supports many <input> types, including:

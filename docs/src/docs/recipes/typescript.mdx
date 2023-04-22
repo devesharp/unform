@@ -17,8 +17,8 @@ When creating a form component using Unform and TypeScript, there are two main p
 
 ```tsx lineNumbers=true
 import React, { useRef } from 'react'
-import { SubmitHandler, FormHandles } from '@unform/core'
-import { Form } from '@unform/web'
+import { SubmitHandler, FormHandles } from '@devesharp/unform-core'
+import { Form } from '@devesharp/unform-web'
 import Input from './components/Input'
 
 interface FormData {
@@ -53,7 +53,7 @@ and **always** set the default value to `null`.
 
 ```tsx lineNumbers=true
 import React, { useEffect, useRef } from 'react'
-import { useField } from '@unform/core'
+import { useField } from '@devesharp/unform-core'
 
 interface Props {
   name: string
@@ -110,7 +110,7 @@ We can also tell `registerField` what kind of value this Entry will store.
 ```tsx lineNumbers=true
 import React, { useRef, useEffect, useCallback } from 'react'
 import { TextInput, TextInputProps, Text } from 'react-native'
-import { useField } from '@unform/core'
+import { useField } from '@devesharp/unform-core'
 
 interface InputProps extends TextInputProps {
   name: string

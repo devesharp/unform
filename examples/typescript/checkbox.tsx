@@ -1,7 +1,7 @@
 import { useEffect, useRef, InputHTMLAttributes } from 'react'
 
-import { useField, SubmitHandler, FormHandles } from '@unform/core'
-import { Form } from '@unform/web'
+import { useField, SubmitHandler, FormHandles } from '@devesharp/unform-core'
+import { Form } from '@devesharp/unform-web'
 
 /**
  * This example renders one checkbox. If you want to render multiple options,

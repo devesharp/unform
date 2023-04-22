@@ -11,7 +11,7 @@ that you will use for every input in your application.
 
 ```jsx title=components/Input.js lineNumbers=true
 import React, { useEffect, useRef } from 'react'
-import { useField } from '@unform/core'
+import { useField } from '@devesharp/unform-core'
 
 export default function Input({ name, ...rest }) {
   const inputRef = useRef(null)
@@ -45,7 +45,7 @@ The next step is creating our form:
 
 ```jsx title=SignIn.js lineNumbers=true
 import React from 'react'
-import { Form } from '@unform/web'
+import { Form } from '@devesharp/unform-web'
 import Input from './components/Input'
 
 export default function SignIn() {

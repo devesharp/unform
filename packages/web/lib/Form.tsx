@@ -1,6 +1,6 @@
 import { ForwardRefRenderFunction, forwardRef } from 'react'
 
-import { FormProvider, FormContext, FormHandles, FormProps } from '@unform/core'
+import { FormProvider, FormContext, FormHandles, FormProps } from '@devesharp/unform-core'
 
 const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
   { initialData = {}, children, onSubmit, ...rest },

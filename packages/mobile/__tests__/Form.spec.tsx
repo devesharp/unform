@@ -6,7 +6,7 @@ import {
 } from 'react'
 
 import { render } from '@testing-library/react-native'
-import { FormHandles } from '@unform/core'
+import { FormHandles } from '@devesharp/unform-core'
 
 import { Form } from '../lib'
 import Input from './components/Input'

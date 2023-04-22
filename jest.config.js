@@ -14,6 +14,6 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   moduleNameMapper: {
-    '@unform/(.*)': '<rootDir>/packages/$1/lib',
+    '@devesharp/unform-(.*)': '<rootDir>/packages/$1/lib',
   },
 }

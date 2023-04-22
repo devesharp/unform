@@ -26,7 +26,7 @@ libraries, such as React Select, React Datepicker, etc.
 
 ```jsx highlight={2,4-5,7,9-17} lineNumbers
 import React, { useEffect, useRef } from 'react'
-import { useField } from '@unform/core'
+import { useField } from '@devesharp/unform-core'
 
 const Input = ({ name, ...rest }) => {
   const inputRef = useRef()
@@ -47,7 +47,7 @@ const Input = ({ name, ...rest }) => {
 export default Input
 ```
 
-In the above code, we are importing `useField` from `@unform/core`. We also
+In the above code, we are importing `useField` from `@devesharp/unform-core`. We also
 created an empty `useEffect` and passed a prop `name` to our input.
 
 > **Remember: when creating a form component, like this input, you always need to provide a ref.**
@@ -99,7 +99,7 @@ continue the tutorial to use our recently created input. Start importing the
 `Form` component.
 
 ```jsx
-import { Form } from '@unform/web'
+import { Form } from '@devesharp/unform-web'
 ```
 
 Now you need to create a method to handle the form submit and use our `Form`
@@ -107,7 +107,7 @@ component, passing the submit method and a ref.
 
 ```jsx lineNumbers
 import React, { useRef } from 'react'
-import { Form } from '@unform/web'
+import { Form } from '@devesharp/unform-web'
 
 const App = () => {
   const formRef = useRef()
@@ -126,7 +126,7 @@ Inside your form, import the `Input` and use it like so:
 
 ```jsx highlight={4,13-19} lineNumbers
 import React, { useRef } from 'react'
-import { Form } from '@unform/web'
+import { Form } from '@devesharp/unform-web'
 
 import Input from '...'
 

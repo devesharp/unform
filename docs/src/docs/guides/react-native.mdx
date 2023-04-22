@@ -3,21 +3,21 @@ title: React Native
 description: Get started with Unform in React Native apps
 ---
 
-The Unform API is almost identical between web and mobile; below, you can see an 
+The Unform API is almost identical between web and mobile; below, you can see an
 Input and a Form using Unform on React Native.
 
 ## Input component
 
 In React Native, we need to use `TextInput` provided by the `react-native` package.
 
-Also, to keep the field uncontrolled, don't store its value within a state, we 
-need to use the references `value` to hold the field value and use the 
+Also, to keep the field uncontrolled, don't store its value within a state, we
+need to use the references `value` to hold the field value and use the
 `setNativeProps` to set the value native renderer.
 
 ```jsx title=Input.js lineNumbers=true
 import React, { useRef, useEffect, useCallback } from 'react';
 import { Text, TextInput } from 'react-native';
-import { useField } from '@unform/core';
+import { useField } from '@devesharp/unform-core';
 
 function Input({ name, label, onChangeText, ...rest }) {
   const inputRef = useRef(null);
@@ -84,13 +84,13 @@ export default Input;
 
 ## Form component
 
-The only difference between the web form is that in React Native, we don't have 
+The only difference between the web form is that in React Native, we don't have
 `<button type="submit" />`, so the form submit must be triggered manually.
 
 ```jsx title=SignIn.js lineNumbers=true
 import React, { useRef } from 'react';
 import { Button } from 'react-native';
-import { Form } from '@unform/mobile';
+import { Form } from '@devesharp/unform-mobile';
 import Input from './components/Input';
 
 export default function SignIn() {
@@ -112,5 +112,5 @@ export default function SignIn() {
 }
 ```
 
-Unform exposes a `submitForm` function within form reference, so calling it will 
+Unform exposes a `submitForm` function within form reference, so calling it will
 trigger `onSubmit` prop passing all the field data.

@@ -16,7 +16,7 @@ Note that `getValue` can return the `rawText` property, that is, if the form doe
 ```jsx lineNumbers=true
 import React, { useRef, useEffect, useCallback } from 'react';
 import { TextInput } from 'react-native';
-import { useField } from '@unform/core';
+import { useField } from '@devesharp/unform-core';
 
 function Input({ name, label, onChangeText, rawText, onInitialData, ...rest }) {
   // this will cause the InputMask to be updated if the Form receives initial data
