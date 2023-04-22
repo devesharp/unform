@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.11](https://github.com/unform/unform/compare/v2.1.10...v2.1.11) (2023-04-22)
+
+**Note:** Version bump only for package root
+
+
+
+
+
 ## [2.1.10](https://github.com/unform/unform/compare/v2.1.9...v2.1.10) (2023-04-22)
 
 **Note:** Version bump only for package root
