@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/unform/unform/compare/v2.2.3...v2.3.0) (2023-04-23)
+
+
+### Features
+
+* add formref for context ([c3ff848](https://github.com/unform/unform/commit/c3ff8485916a8308024bebcbe5d56e116d37c9b3))
+
+
+
+
+
 ## [2.2.3](https://github.com/unform/unform/compare/v2.2.2...v2.2.3) (2023-04-23)
 
 **Note:** Version bump only for package root
