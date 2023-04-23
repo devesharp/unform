@@ -29,7 +29,7 @@ export interface UnformErrors {
 }
 
 export interface UnformContext {
-  initialData: Record<string, any>
+  initialData: any
   errors: UnformErrors
   scopePath: string
   registerField<T>(field: UnformField<T>): void
