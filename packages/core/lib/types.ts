@@ -2,7 +2,7 @@ import {
   DetailedHTMLProps,
   FormHTMLAttributes,
   FormEvent,
-  ReactNode,
+  ReactNode, ForwardedRef,
 } from 'react'
 
 interface BaseUnformField<T> {
@@ -28,16 +28,6 @@ export interface UnformErrors {
   [key: string]: string | undefined
 }
 
-export interface UnformContext {
-  initialData: any
-  errors: UnformErrors
-  scopePath: string
-  registerField<T>(field: UnformField<T>): void
-  unregisterField: (name: string) => void
-  clearFieldError: (fieldName: string) => void
-  handleSubmit: (e?: FormEvent) => void
-}
-
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
 type HTMLFormProps = DetailedHTMLProps<
@@ -58,6 +48,17 @@ export interface FormHandles {
   setErrors(errors: Record<string, string>): void
   reset(data?: Record<string, any>): void
   submitForm(): void
+}
+
+export interface UnformContext {
+  formRef: ForwardedRef<FormHandles>
+  initialData: any
+  errors: UnformErrors
+  scopePath: string
+  registerField<T>(field: UnformField<T>): void
+  unregisterField: (name: string) => void
+  clearFieldError: (fieldName: string) => void
+  handleSubmit: (e?: FormEvent) => void
 }
 
 export interface FormHelpers {

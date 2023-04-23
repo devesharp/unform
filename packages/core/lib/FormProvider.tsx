@@ -207,6 +207,7 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
   return (
     <FormContext.Provider
       value={{
+        formRef,
         initialData: currentData,
         errors,
         scopePath: '',
