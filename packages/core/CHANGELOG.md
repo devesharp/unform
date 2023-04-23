@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/unform/unform/compare/v2.3.0...v2.4.0) (2023-04-23)
+
+
+### Features
+
+* remove console log ([abdb9ec](https://github.com/unform/unform/commit/abdb9ec8f3404d56e7099cc5244ef3998985fb8e))
+
+
+
+
+
 # [2.3.0](https://github.com/unform/unform/compare/v2.2.3...v2.3.0) (2023-04-23)
 
 
