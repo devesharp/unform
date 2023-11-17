@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/unform/unform/compare/v2.4.0...v2.5.0) (2023-11-17)
+
+
+### Features
+
+* corrigir erro de não remover valores antigo ao registerField ([6b2c66b](https://github.com/unform/unform/commit/6b2c66be888fbb431e86615dc2f499e3052ae252))
+
+
+
+
+
 # [2.4.0](https://github.com/unform/unform/compare/v2.3.0...v2.4.0) (2023-04-23)
 
 
