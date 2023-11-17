@@ -123,10 +123,6 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
     [onSubmit, parseFormData, reset]
   )
 
-  const registerField = useCallback((field: UnformField) => {
-    fields.current.push(field)
-  }, [])
-
   const unregisterField = useCallback((fieldName: string) => {
     const fieldIndex = fields.current.findIndex(
       field => field.name === fieldName
@@ -135,6 +131,11 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
     if (fieldIndex > -1) {
       fields.current.splice(fieldIndex, 1)
     }
+  }, [])
+
+  const registerField = useCallback((field: UnformField) => {
+    unregisterField(field.name)
+    fields.current.push(field)
   }, [])
 
   const clearFieldError = useCallback((fieldName: string) => {
