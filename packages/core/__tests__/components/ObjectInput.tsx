@@ -43,3 +43,26 @@ export function ObjectInput({ name, label, ...rest }: InputProps) {
     </>
   )
 }
+
+export function ObjectInput2({ name, label, ...rest }: InputProps) {
+  const inputRef = useRef<HTMLInputElement>(null)
+  const { fieldName, registerField, defaultValue, error } = useField(name)
+
+  useEffect(() => {
+    registerField<any>({
+      name: fieldName,
+      ref: inputRef,
+      path: 'current',
+      setValue(ref: any, v) {
+        console.log(v)
+        ref.current = v
+      },
+    })
+  }, [fieldName, registerField])
+
+  return (
+    <>
+
+    </>
+  )
+}
