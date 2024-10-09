@@ -37,9 +37,6 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
 
   const setFieldValue = useCallback(
     ({ path, ref, setValue }: UnformField, value: any) => {
-      console.log(path, ref, setValue)
-
-
       if (setValue) {
         return setValue(ref, value)
       }
@@ -157,8 +154,6 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
     },
     setFieldValue(fieldName, value) {
       const field = getFieldByName(fieldName)
-
-      console.log(fieldName, field)
 
       dot.set(fieldName, value, currentData.current)
 
