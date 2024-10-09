@@ -26,6 +26,7 @@
     "prepublishOnly": "npm run build",
     "publish:canary": "lerna version prerelease --no-changelog --preid next",
     "publish:stable": "lerna version --no-changelog",
+    "deploy": "yarn build && lerna publish",
     "postinstall": "husky install"
   },
   "devDependencies": {

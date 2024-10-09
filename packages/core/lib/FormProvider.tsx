@@ -39,6 +39,7 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
     ({ path, ref, setValue }: UnformField, value: any) => {
       console.log(path, ref, setValue)
 
+
       if (setValue) {
         return setValue(ref, value)
       }
