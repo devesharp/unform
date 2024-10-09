@@ -1,6 +1,6 @@
 {
   "name": "@devesharp/unform-mobile",
-  "version": "2.5.3",
+  "version": "2.5.4",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -31,7 +31,7 @@
     "url": "https://github.com/unform/unform/issues"
   },
   "dependencies": {
-    "@devesharp/unform-core": "2.5.3"
+    "@devesharp/unform-core": "2.5.4"
   },
   "devDependencies": {
     "@testing-library/react-native": "7.1.0",
