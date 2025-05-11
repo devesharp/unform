@@ -71,10 +71,10 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
   const setData = useCallback(
     (data: object) => {
       const fieldValue = {}
-      currentData.current = data
+      currentData.current = {...data}
 
       fields.current.forEach(field => {
-        fieldValue[field.name] = dot.pick(field.name, data)
+        fieldValue[field.name] = dot.pick(field.name, { ...data })
       })
 
       Object.entries(fieldValue).forEach(([fieldName, value]) => {
