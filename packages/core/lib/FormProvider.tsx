@@ -19,7 +19,7 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
 ) => {
   const [errors, setErrors] = useState<UnformErrors>({})
   const fields = useRef<UnformField[]>([])
-  const currentData = useRef<any>(initialData)
+  const currentData = useRef<any>(cloneDeep(initialData))
 
   const getFieldByName = useCallback(
     fieldName =>
