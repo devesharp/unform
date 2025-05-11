@@ -1,6 +1,6 @@
 {
   "name": "@devesharp/unform-web",
-  "version": "2.5.6",
+  "version": "2.5.7",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -31,7 +31,7 @@
     "url": "https://github.com/unform/unform/issues"
   },
   "dependencies": {
-    "@devesharp/unform-core": "2.5.6"
+    "@devesharp/unform-core": "2.5.7"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
