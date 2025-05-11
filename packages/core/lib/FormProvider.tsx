@@ -7,7 +7,7 @@ import {
   useImperativeHandle,
   ForwardRefRenderFunction,
 } from 'react'
-
+import cloneDeep from 'lodash/cloneDeep';
 import dot from 'dot-object'
 
 import { FormContext } from './Context'
@@ -71,10 +71,10 @@ const Form: ForwardRefRenderFunction<FormHandles, FormProps> = (
   const setData = useCallback(
     (data: object) => {
       const fieldValue = {}
-      currentData.current = {...data}
+      currentData.current = cloneDeep(data)
 
       fields.current.forEach(field => {
-        fieldValue[field.name] = dot.pick(field.name, { ...data })
+        fieldValue[field.name] = dot.pick(field.name, cloneDeep(data))
       })
 
       Object.entries(fieldValue).forEach(([fieldName, value]) => {
