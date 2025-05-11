@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.6](https://github.com/unform/unform/compare/v2.5.5...v2.5.6) (2025-05-11)
+
+**Note:** Version bump only for package @devesharp/unform-web
+
+
+
+
+
 ## [2.5.5](https://github.com/unform/unform/compare/v2.5.4...v2.5.5) (2025-05-11)
 
 **Note:** Version bump only for package @devesharp/unform-web
